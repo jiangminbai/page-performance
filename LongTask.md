@@ -16,6 +16,6 @@ RAIL对web应用的四个生命周期提出的准则：
 
 1. 将阻塞主线程的长任务拆分成异步的串行小任务(50ms以内),setTimeout(0)
 
-2. webWorker 额外的线程计算长任务
+2. webWorker 额外的线程计算长任务，不阻塞主线程
 
-3. requestIdleCallback 在浏览器空闲时执行任务
+3. requestIdleCallback 在浏览器空闲时执行任务，但是执行的任务如果时间太长会阻塞下一次的渲染。
