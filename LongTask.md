@@ -11,10 +11,10 @@ RAIL对web应用的四个生命周期提出的准则：
 
 2. 可以通过Bottom-Up -> Group By Activity去排查
 
-
 ### 长任务优化策略
 
-1. 将阻塞主线程的长任务拆分成异步的串行小任务(50ms以内),setTimeout(0)
+1. 将阻塞主线程的长任务拆分成异步的串行小任务(50ms以内),
+await new Promise((resolve, reject) => {setTimeout(() => {resolve()}, 0)}) 每执行一个任务完成后，将控制权交给主线程
 
 2. webWorker 额外的线程计算长任务，不阻塞主线程
 
